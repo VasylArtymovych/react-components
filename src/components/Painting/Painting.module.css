@@ -1,0 +1,21 @@
+
+.img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.btn {
+    width: 100px;
+    height: 35px;
+    background-color: rgb(111, 36, 176);
+    color: #fff;
+    border-radius: 40px;
+    border: none;
+    
+}
+
+.btn:hover {
+    background-color: rgb(178, 118, 7);
+    box-shadow: 0px 0px 3px rgb(74, 10, 134);
+}
