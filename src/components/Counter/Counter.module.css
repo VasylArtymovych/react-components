@@ -1,0 +1,41 @@
+.btn {
+    width: 80px;
+    height: 25px;
+    color: #fff;
+    border-radius: 40px;
+    border: none;
+    transition: transform 500ms;
+}
+
+.incBtn {
+    composes: btn;
+    margin-right: 5px;
+    background-color: rgb(10, 139, 10);
+}
+
+.decBtn {
+    composes: btn;
+    background-color: blueviolet;
+}
+
+.incBtn:hover,
+.decBtn:hover {
+    transform: scale(1.1);
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.value {
+    width: 50px;
+    height: 25px;
+    margin-right: 15px;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+    border-radius: 7px;
+    color: #fff;
+    background-color: rgb(16, 142, 5);
+}

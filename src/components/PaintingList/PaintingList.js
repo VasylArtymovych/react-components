@@ -15,6 +15,7 @@ function PaintingList({items}){
                     price={item.price}
                     quantity={item.quantity}
                 />
+                
             </li>
         })}
     </ul>

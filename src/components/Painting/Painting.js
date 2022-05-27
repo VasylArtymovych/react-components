@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import defaultImg from './default.jpg';
 import s from './Painting.module.css';
+import Counter from '../Counter/Counter'
 
 const Painting = (props) => {
     const {
@@ -21,7 +22,8 @@ const Painting = (props) => {
         </p>
         <p><b>Price:</b> {price} credits</p>
         <p><b>Availibility:</b> { quantity < 10 ? "Few Left" : "in Stok"}</p>
-        <button type="button" className={s.btn}>Add to bag</button>
+        
+        <Counter initialValue={0} step={1}/>
       </div>
     );
   };
