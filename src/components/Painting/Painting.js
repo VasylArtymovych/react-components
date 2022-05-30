@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import defaultImg from './default.jpg';
 import s from './Painting.module.css';
-import Counter from '../Counter/Counter'
+import Counter from '../Counter';
 
 const Painting = (props) => {
     const {

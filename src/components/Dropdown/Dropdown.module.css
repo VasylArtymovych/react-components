@@ -1,0 +1,27 @@
+.container {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.menu {
+    width: 30%;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to left, #207605, #5405A7);
+}
+
+.btn {
+    width: 250px;
+    height: 50px;
+    font-size: 22px;
+    margin-bottom: 10px;
+    background-image: linear-gradient(to right, #207605, #5405A7 );
+    color: #fff;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+}

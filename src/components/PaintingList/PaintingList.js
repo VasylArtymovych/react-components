@@ -1,4 +1,4 @@
-import Painting from  '../Painting/Painting';
+import Painting from  '../Painting';
 import PropTypes from 'prop-types';
 import s from './PaintingList.module.css';
 
