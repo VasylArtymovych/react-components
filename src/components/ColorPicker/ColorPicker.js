@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import s from './ColorChanger.module.css';
+import s from './ColorPicker.module.css';
 
 class ColorChanger extends Component {
     static propTypes = {

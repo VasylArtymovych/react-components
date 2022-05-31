@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import ColorChanger from '../ColorChanger';
-import Colors from '../ColorChanger/Colors.json';
+import ColorChanger from '../ColorPicker';
+import Colors from '../ColorPicker/Colors.json';
 import s from './Dropdown.module.css';
 import PropTypes from 'prop-types';
 
@@ -32,6 +32,7 @@ class Dropdown extends Component {
 
             { visible && (
                 <div className={s.menu}>
+                    <span className={s.text}>Set section bgr-color:</span>
                     <ColorChanger colors={Colors} setBgrColor={setColor}/>
                 </div>
             )}
