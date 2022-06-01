@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import s from './ColorPicker.module.css';
+import classNames from 'classnames/bind';
+const cx = classNames.bind(s);
 
 class ColorChanger extends Component {
     static propTypes = {
@@ -15,12 +17,13 @@ class ColorChanger extends Component {
     }
 
     makeItemClassName = index => {
-        const classes = [s.btn];
-
-        if(index === this.state.activeColorIdx){
-            classes.push(s.active);
-        }
-        return classes.join(' ');
+        return cx('btn',  {'active': index === this.state.activeColorIdx})
+        
+        // const classes = [s.btn];
+        // if(index === this.state.activeColorIdx){
+        //     classes.push(s.active);
+        // }
+        // return classes.join(' ');
     }
 
     render(){
