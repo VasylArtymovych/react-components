@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import s from './TodoList.module.css';
+// import s from './TodoList.module.css';
 import Todos from './todos.json';
-import FilterTodo from "../FilterTodo";
-import TodoForm from '../TodoForm';
+import FilterTodo from "./FilterTodo";
+import TodoForm from './TodoForm';
 import shortid from 'shortid';
 
 class TodoList extends Component {
