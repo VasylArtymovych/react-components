@@ -1,9 +1,11 @@
 import React, {Component} from "react";
-// import s from './TodoList.module.css';
+import shortid from 'shortid';
+import styled, {css} from "styled-components";
 import Todos from './todos.json';
 import FilterTodo from "./FilterTodo";
 import TodoForm from './TodoForm';
-import shortid from 'shortid';
+import FlexContainer from "./FlexContainer";
+
 
 class TodoList extends Component {
     state = {
@@ -57,52 +59,72 @@ class TodoList extends Component {
         const filteredTodos = this.filterByName()
 
         return  (
-        <div>
-            <p>Total: {todos.length}</p>
-            <p>Comleted: {completedTodo}</p>
+        <Container direction="column" padding="10px">
+            <TodoText>Total: {todos.length}</TodoText>
+            <TodoText>Comleted: {completedTodo}</TodoText>
+
             <TodoForm onAddTodo={this.addTodo}/>
+
             <FilterTodo onChange={this.setFilterText} value={filter}/>
             <ul>
             {filteredTodos.map(({id, text, completed}) => (
-                <li key={id}>
+                <Item key={id}>
                     <input
                     type="checkbox"
                     checked={completed}
                     onChange={()=>{this.toggleComplited(id)}}
                     />
-                    <p>{text}</p>
-                    <button 
+                    <InputText>{text}</InputText>
+                    <Button 
                     type="button"
                     onClick={()=>{this.deleteTodo(id)}}
                     >
                     delete
-                    </button>
-                </li>
+                    </Button>
+                </Item>
             ))}
         </ul>
-        </div>
+        </Container>
         ) 
     }
-}
-// const TodoList = ({todos, onDeleteTodo})=> (
-//     <ul>
-//         {todos.map(({id, text, complited}) => (
-//             <li key={id}>
-//                 <input
-//                 type="checkbox"
-//                 checked={complited}
-//                 onChange={()=>{}}
-//                 />
-//                 <p>{text}</p>
-//                 <button 
-//                 type="button"
-//                 onClick={()=>{onDeleteTodo(id)}}
-//                 >
-//                 delete
-//                 </button>
-//             </li>
-//         ))}
-//     </ul>
-// )
+};
 
 export default TodoList; 
+
+const Container = styled(FlexContainer)`
+    width: 550px;
+    background: grey;
+`;
+
+const TodoText = styled.p`
+    font-size: 22px;
+    
+`;
+
+const Item = styled.li`
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    background: #D8E5DF;
+    border: 1px solid grey;
+    &:not(:last-child){
+        margin-bottom: 10px;
+    }
+`;
+
+const Input = styled.input.attrs({
+    type: 'checkbox',
+    completed: css`${props => props.completed}`,
+})`
+    width: 40px;
+    height: 40px;
+`;
+
+const Button = styled.button.attrs({type: 'button'})`
+    margin-left: auto;
+`;
+
+const InputText = styled.p`
+  
+`;
