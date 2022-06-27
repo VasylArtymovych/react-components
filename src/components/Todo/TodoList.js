@@ -4,7 +4,7 @@ import styled, {css} from "styled-components";
 import Todos from './todos.json';
 import FilterTodo from "./FilterTodo";
 import TodoForm from './TodoForm';
-import FlexContainer from "./FlexContainer";
+import FlexContainer from "../FlexContainer/FlexContainer";
 
 
 class TodoList extends Component {

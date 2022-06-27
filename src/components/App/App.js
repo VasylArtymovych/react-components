@@ -1,12 +1,14 @@
 import React, {Component} from "react";
 import styled from 'styled-components';
 import PaintingList from "../PaintingList";
-import paintings from '../../painting.json';
+import paintings from '../Painting/painting.json';
 import Section from "../Section";
-import TodoList from '../TodoList';
-import Form from '../Form';
-import Title from '../Title';
-import FlexContainer from "../FlexContainer";
+import TodoList from '../Todo/TodoList';
+import Form from '../RegisterForm/RegisterForm';
+import Title from '../Todo/TodoTitle';
+import FlexContainer from "../FlexContainer/FlexContainer";
+import {Box} from "../Box";
+
 
 const AppWraper = styled.div`
   width: 100%;
@@ -34,7 +36,10 @@ class App extends Component {
           <PaintingList items={paintings}/>
         </Section>
 
-        <Title color="blue">Hello world!!!</Title>
+      <Box bg='tomato'>
+      <Title color="blue">Hello world!!!</Title>
+      </Box>
+
         
         <FlexContainer justify='space-around' padding='10px'>
           <TodoList/>
