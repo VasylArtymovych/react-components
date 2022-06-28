@@ -1,7 +1,7 @@
 import React, {Component} from "react";
-import styled from 'styled-components';
 import { AppBar } from "../AppBar/";
-import { RegisterForm } from "../RegisterForm/RegisterForm";
+import { ContactBook } from "../ContactBook";
+// import { RegisterForm } from "../RegisterForm/RegisterForm";
 
 
 
@@ -13,9 +13,8 @@ class App extends Component {
     return (
       <div>
         <AppBar/>
-
-        <RegisterForm />
-        
+        <ContactBook />
+        {/* <RegisterForm /> */}
       </div>
     )
   }
