@@ -1,16 +1,18 @@
 export const theme = {
     colors: {
+        white: '#fff',
+        black: '#000',
         text: '#000',
-        background: '#fff',
+        background: '#20180B',
         primary: "#DFE6E3",
         secondary: '#05a',
-        accent: '#609',
-        muted: '#f6f6f6',
+        accent: 'orange',
+        muted: 'grey',
     },
     space: [0,2,4,8,16,32,64,128,256],
     fonts: {
         body: 'system-ui, sans-serif',
-        heading: 'system-ui, sans-serif',
+        heading: 'Arial, sans-serif',
         monospace: 'Menlo, monospace',
     },
     fontSizes: {
@@ -21,8 +23,7 @@ export const theme = {
         xl: 64,
     },
     fontWeights: {
-        body: 400,
-        heading: 700,
+        normal: 400,
         bold: 700,
     },
     lineHeights: {
@@ -33,14 +34,14 @@ export const theme = {
         none: 'none',
         normal: '1px solid',
     },
-    borderRadius: {
+    radii: {
         none: '0',
         normal: '4px',
         round: '50%',
     },
     media: {
         phone: "(max-width: 425px)",
-        tablet: "(max-width: 768px) and (min-width: 425px)",
+        tablet: "(min-width: 426px)",
         desktop: "(min-width: 769px)",
     },
 };

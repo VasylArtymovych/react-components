@@ -1,8 +1,0 @@
-[
-    {"label": "red", "color": "rgba(136,22,5,0.85)"},
-    {"label": "green", "color": "rgba(26,76,17,0.85)"},
-    {"label": "blue", "color": "rgba(12,17,101,0.8)"},
-    {"label": "purple", "color": "rgba(75,9,116,0.8)"},
-    {"label": "pink", "color": "rgba(153,35,139,0.8)"},
-    {"label": "orange", "color": "rgba(170,68,15,0.8)"}
-]
