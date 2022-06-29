@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import { AppBar } from "../AppBar/";
-import { ContactBook } from "../ContactBook";
+// import { ContactBook } from "../ContactBook";
 // import { RegisterForm } from "../RegisterForm/RegisterForm";
 
 
@@ -13,7 +13,7 @@ class App extends Component {
     return (
       <div>
         <AppBar/>
-        <ContactBook />
+        {/* <ContactBook /> */}
         {/* <RegisterForm /> */}
       </div>
     )
