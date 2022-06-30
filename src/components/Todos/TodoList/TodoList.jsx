@@ -1,6 +1,7 @@
 // import { TodoItem } from "../TodoItem/TodoItem";
 import styled, {css} from "styled-components";
-
+import { Button } from "../../Button/Button";
+import {RiDeleteBin6Line} from 'react-icons/ri';
 
 export const TodoList = ({todos, onDeleteTodo,  onToggleCompleted}) => {
 
@@ -14,9 +15,9 @@ export const TodoList = ({todos, onDeleteTodo,  onToggleCompleted}) => {
                     onChange={()=>{onToggleCompleted(id)}}
                     />
                     <StyledText checked={completed}>{text}</StyledText>
-                    <button onClick={()=>{onDeleteTodo(id)}}>
-                        remove
-                    </button>
+                    <Button onClick={()=>{onDeleteTodo(id)}}>
+                        <RiDeleteBin6Line size={20} />
+                    </Button>
                 </StyledItem>
                 // <TodoItem key={todo.id} todo={todo}  onDelete={onDeleteTodo} onToggle={onToggleCompleted}/> 
             ))}
