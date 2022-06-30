@@ -6,7 +6,6 @@ export const VideoInfo = ({title, views, uploadDate})=>{
     return (
         <Box bg='background'
             pb='3'
-            
         >
             <StyledTitle>{title}</StyledTitle>
             <Box

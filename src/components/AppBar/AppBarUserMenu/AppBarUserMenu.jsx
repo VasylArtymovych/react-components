@@ -5,7 +5,7 @@ import { Button } from '../../Button/Button';
 
 export const AppBarUserMenu = (props)=>{
     return (
-        <Box>
+        <Box display='flex'>
             <Button color='white'>
                 <CgMenuGridR size='24'/>
             </Button>
@@ -15,7 +15,6 @@ export const AppBarUserMenu = (props)=>{
             <Button color='white'>
                 <FaUserCircle size='24'/>
             </Button>
-            
         </Box>
     );
 };
