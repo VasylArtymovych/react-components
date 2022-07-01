@@ -16,5 +16,5 @@ export const StyledButton = styled.button.attrs(props => ({
     border-radius: ${p => p.borderRadius || p.theme.radii.normal};
     background-color: ${p => p.backgroundColor || 'transparent'};
     color: ${p => p.color || p.theme.text};
-
+    
 `;

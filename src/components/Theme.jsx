@@ -6,8 +6,9 @@ export const theme = {
         background: '#20180B',
         primary: "#DFE6E3",
         secondary: '#05a',
+        effects:  'green',
         accent: 'orange',
-        muted: 'grey',
+        muted: 'RGBA(0,0,0,0.85)',
     },
     space: [0,2,4,8,16,32,64,128,256],
     fonts: {

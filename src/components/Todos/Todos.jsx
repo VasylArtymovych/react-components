@@ -19,6 +19,21 @@ export class Todos extends Component {
         filter: '',
     }
 
+    componentDidMount(){
+        const todos =  localStorage.getItem('todos');
+        const parsedTodos = JSON.parse(todos);
+
+        if(parsedTodos) {
+            this.setState({todos: parsedTodos});
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        if(this.state.todos !== prevState.todos){
+            localStorage.setItem('todos', JSON.stringify(this.state.todos));
+        }
+    }
+
     handleChange = (e)=>{
         const {name, value} = e.target;
         this.setState({

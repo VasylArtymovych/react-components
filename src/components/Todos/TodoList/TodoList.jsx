@@ -1,25 +1,20 @@
-// import { TodoItem } from "../TodoItem/TodoItem";
-import styled, {css} from "styled-components";
-import { Button } from "../../Button/Button";
-import {RiDeleteBin6Line} from 'react-icons/ri';
+import styled from "styled-components";
+import { Todo } from "../Todo/Todo";
 
 export const TodoList = ({todos, onDeleteTodo,  onToggleCompleted}) => {
 
     return (
         <StyledList>
             {todos.map( ({id, text, completed}) => (
-                <StyledItem key ={id}>
-                    <input
-                    type="checkbox"
-                    checked={completed}
-                    onChange={()=>{onToggleCompleted(id)}}
+                <StyledItem key ={id} cheked={completed}>
+                    <Todo 
+                    id={id} 
+                    text={text} 
+                    completed={completed} 
+                    onToggleCompleted={()=>{onToggleCompleted(id)}}
+                    onDelete={()=>{onDeleteTodo(id)}}
                     />
-                    <StyledText checked={completed}>{text}</StyledText>
-                    <Button onClick={()=>{onDeleteTodo(id)}}>
-                        <RiDeleteBin6Line size={20} />
-                    </Button>
                 </StyledItem>
-                // <TodoItem key={todo.id} todo={todo}  onDelete={onDeleteTodo} onToggle={onToggleCompleted}/> 
             ))}
         </StyledList>
     );
@@ -35,6 +30,7 @@ const StyledList = styled('ul')`
 
 
 const StyledItem = styled('li')`
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -45,20 +41,18 @@ const StyledItem = styled('li')`
     margin: 0 10px 10px 0;
 
     background-color: grey;
-`;
 
-const StyledText = styled('p')`
-    ${p => {
-        if(p.checked){
-            return css`
-            color: ${p.theme.colors.secondary};
-            text-decoration: line-through;
-            `
-        }
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
 
-        return css`
-            color: ${p.theme.colors.text};
-            text-decoration: none;
-            `
-    }};
+        background-color: ${p => p.theme.colors.effects};
+
+        transform: ${ p=> p.cheked ? 'scaleX(1)': 'scaleX(0) '};
+        transition: transform 250ms linear;
+    }
 `;

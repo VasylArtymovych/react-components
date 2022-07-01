@@ -6,7 +6,7 @@ import { VideoInfo } from "./VideoInfo";
 import {VideoPlayer} from './VideoPlayer';
 import { Box } from "../Box";
 
-export const AppBar = () => {
+export const AppBar = ({onToggleModal}) => {
     return (
         <div>
             <Box 
@@ -22,7 +22,7 @@ export const AppBar = () => {
             >
                 <AppBarLogo text="YouTube"/>
                 <AppBarSearchBox />
-                <AppBarUserMenu  avatar="" />
+                <AppBarUserMenu  avatar="" onToggleModal={onToggleModal}/>
             </Box>
             <Box as='section'
             display='flex'
