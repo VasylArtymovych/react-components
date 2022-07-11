@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './components/App';
-import {createGlobalStyle, ThemeProvider} from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import { theme } from './components/Theme';
-
 
 const Global = createGlobalStyle`
   * {
@@ -17,15 +17,11 @@ const Global = createGlobalStyle`
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    
     <ThemeProvider theme={theme}>
-      <Global/>
-      <App />
+      <Global />
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
     </ThemeProvider>
-    
   </React.StrictMode>
 );
-
-
-
-
