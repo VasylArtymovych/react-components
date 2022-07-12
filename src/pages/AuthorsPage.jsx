@@ -1,7 +1,8 @@
+import { Suspense } from 'react';
 import { NavLink, Outlet, Route, Routes, useLocation } from 'react-router-dom';
 import { getAuthors } from '../fakeAPI';
 
-export const AuthorsPage = () => {
+export default function AuthorsPage() {
   const authors = getAuthors();
 
   return (
@@ -14,7 +15,9 @@ export const AuthorsPage = () => {
         ))}
       </ul>
       <hr />
-      <Outlet context={authors} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Outlet context={authors} />
+      </Suspense>
     </>
   );
-};
+}

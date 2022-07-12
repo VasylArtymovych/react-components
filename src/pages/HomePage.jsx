@@ -2,7 +2,7 @@ import { AppBar } from '../components/AppBar';
 import { Modal } from '../components/Modal';
 import { useModal } from '../components/Hooks/ModalHook';
 
-export const HomePage = () => {
+function HomePage() {
   const { isModalShown, toggleModal } = useModal();
 
   return (
@@ -23,4 +23,6 @@ export const HomePage = () => {
       )}
     </>
   );
-};
+}
+
+export default HomePage;

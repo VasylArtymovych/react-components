@@ -1,7 +1,7 @@
 import { useParams, useOutletContext, Link } from 'react-router-dom';
 import { getAuthorBooks } from '../fakeAPI';
 
-export const AuthorSubPage = () => {
+export default function AuthorSubPage() {
   const { authorId } = useParams();
   const books = getAuthorBooks(Number(authorId));
   const authors = useOutletContext();
@@ -20,4 +20,4 @@ export const AuthorSubPage = () => {
       </ul>
     </>
   );
-};
+}

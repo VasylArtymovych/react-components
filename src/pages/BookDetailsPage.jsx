@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { getBookById, getAuthorById } from '../fakeAPI';
 
-export const BookDetailsPage = () => {
+export default function BookDetailsPage() {
   const { bookId } = useParams();
   const book = getBookById(Number(bookId));
   const author = getAuthorById(book.authorId);
@@ -18,4 +18,4 @@ export const BookDetailsPage = () => {
       </p>
     </>
   );
-};
+}

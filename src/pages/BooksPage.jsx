@@ -3,7 +3,7 @@ import { Link, useHref, useLocation } from 'react-router-dom';
 
 import { getBooks } from '../fakeAPI';
 
-export const BooksPage = () => {
+export default function BooksPage() {
   const [books, setBooks] = useState(null);
   const { pathname } = useLocation();
 
@@ -24,4 +24,4 @@ export const BooksPage = () => {
       )}
     </>
   );
-};
+}
