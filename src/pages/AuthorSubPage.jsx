@@ -1,5 +1,11 @@
-import { useParams, useOutletContext, Link } from 'react-router-dom';
+import {
+  useParams,
+  useOutletContext,
+  Link,
+  generatePath,
+} from 'react-router-dom';
 import { getAuthorBooks } from '../fakeAPI';
+import RoutPaths from '../RoutPaths';
 
 export default function AuthorSubPage() {
   const { authorId } = useParams();
@@ -12,11 +18,14 @@ export default function AuthorSubPage() {
       <h2>{author.name}</h2>
 
       <ul>
-        {books.map(book => (
-          <li key={book.id}>
-            <Link to={`/books/${book.id}`}>{book.title}</Link>
-          </li>
-        ))}
+        {books.map(({ id, title }) => {
+          const bookPath = generatePath(RoutPaths.book, { bookId: id });
+          return (
+            <li key={id}>
+              <Link to={bookPath}>{title}</Link>
+            </li>
+          );
+        })}
       </ul>
     </>
   );

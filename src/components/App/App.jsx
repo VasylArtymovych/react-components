@@ -2,13 +2,11 @@ import { Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
 import styled from 'styled-components';
 import HeaderBar from '../HeaderBar/HeaderBar';
-// import HomePage from '../../pages/HomePage';
-// import AuthorsPage from '../../pages/AuthorsPage';
-// import AuthorSubPage from '../../pages/AuthorSubPage';
-// import BooksPage from '../../pages/BooksPage';
-// import BookDetailsPage from '../../pages/BookDetailsPage';
-// import TablePage from '../../pages/TablePage';
 import { NotFoundPage } from '../../pages/NotFoundPage';
+import RoutPaths from '../../RoutPaths';
+
+// import { ProductReviewForm } from '../ProductReviewForm';
+// import { LoginForm } from '../RegisterForm/LoginForm';
 
 const HomePage = lazy(() =>
   import('../../pages/HomePage.jsx' /* webpackChunkName: 'home-page' */)
@@ -18,12 +16,9 @@ const AuthorSubPage = lazy(() => import('../../pages/AuthorSubPage.jsx'));
 const BooksPage = lazy(() => import('../../pages/BooksPage.jsx'));
 const BookDetailsPage = lazy(() => import('../../pages/BookDetailsPage.jsx'));
 const TablePage = lazy(() => import('../../pages/TablePage.jsx'));
-
-// import { Todos } from '../Todos/Todos';
-// import { ProductReviewForm } from '../ProductReviewForm';
-// import { LoginForm } from '../RegisterForm/LoginForm';
-// import { ContactBook } from '../ContactBook';
-// import { RegisterForm } from '../RegisterForm/RegisterForm';
+const TodosPage = lazy(() => import('../../pages/TodosPage.jsx'));
+const PhoneBookPage = lazy(() => import('../../pages/PhoneBookPage.jsx'));
+const RegisterFormPage = lazy(() => import('../../pages/RegisterFormPage.jsx'));
 
 const App = () => {
   return (
@@ -32,26 +27,24 @@ const App = () => {
 
       <Suspense fallback={<div>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/authors" element={<AuthorsPage />}>
-            <Route path=":authorId" element={<AuthorSubPage />} />
+          <Route path={RoutPaths.home} element={<HomePage />} />
+          <Route path={RoutPaths.authors} element={<AuthorsPage />}>
+            <Route path={RoutPaths.author} element={<AuthorSubPage />} />
           </Route>
 
-          <Route path="/books" element={<BooksPage />} />
-          <Route path="/books/:bookId" element={<BookDetailsPage />} />
-          <Route path="/table" element={<TablePage />} />
+          <Route path={RoutPaths.books} element={<BooksPage />} />
+          <Route path={RoutPaths.book} element={<BookDetailsPage />} />
+          <Route path={RoutPaths.table} element={<TablePage />} />
+          <Route path={RoutPaths.todos} element={<TodosPage />} />
+          <Route path={RoutPaths.phoneBook} element={<PhoneBookPage />} />
+          <Route path={RoutPaths.registerForm} element={<RegisterFormPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
 
-      {/* <Todos /> */}
-
       {/* <LoginForm /> */}
       {/* <ProductReviewForm /> */}
-
-      {/* <ContactBook />
-      <RegisterForm /> */}
     </Container>
   );
 };

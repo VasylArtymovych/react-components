@@ -1,12 +1,16 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import RoutPaths from '../../RoutPaths';
 
 export const Navigation = () => (
   <nav>
-    <StyLedNavLink to="/">Home</StyLedNavLink>
-    <StyLedNavLink to="/authors">Authors</StyLedNavLink>
-    <StyLedNavLink to="/books">Books</StyLedNavLink>
-    <StyLedNavLink to="/table">Table</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.home}>Home</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.authors}>Authors</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.books}>Books</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.table}>Table</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.todos}>Todos</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.phoneBook}>PhoneBook</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.registerForm}>RegisterForm</StyLedNavLink>
   </nav>
 );
 

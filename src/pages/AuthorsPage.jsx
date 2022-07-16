@@ -1,6 +1,7 @@
 import { Suspense } from 'react';
-import { NavLink, Outlet, Route, Routes, useLocation } from 'react-router-dom';
+import { NavLink, Outlet, generatePath } from 'react-router-dom';
 import { getAuthors } from '../fakeAPI';
+import RoutPaths from '../RoutPaths';
 
 export default function AuthorsPage() {
   const authors = getAuthors();
@@ -8,11 +9,15 @@ export default function AuthorsPage() {
   return (
     <>
       <ul>
-        {authors.map(author => (
-          <li key={author.id}>
-            <NavLink to={`/authors/${author.id}`}>{author.name}</NavLink>
-          </li>
-        ))}
+        {authors.map(({ id, name }) => {
+          const authorPath = generatePath(RoutPaths.author, { authorId: id });
+
+          return (
+            <li key={id}>
+              <NavLink to={authorPath}>{name}</NavLink>
+            </li>
+          );
+        })}
       </ul>
       <hr />
       <Suspense fallback={<div>Loading...</div>}>

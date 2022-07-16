@@ -1,2 +1,1 @@
-
-export {Todos} from './Todos';
+export { default } from './Todos';

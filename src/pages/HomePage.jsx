@@ -1,6 +1,6 @@
 import { AppBar } from '../components/AppBar';
 import { Modal } from '../components/Modal';
-import { useModal } from '../components/Hooks/ModalHook';
+import { useModal } from '../Hooks/ModalHook';
 
 function HomePage() {
   const { isModalShown, toggleModal } = useModal();
