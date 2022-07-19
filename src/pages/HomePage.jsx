@@ -1,5 +1,6 @@
 import { AppBar } from '../components/AppBar';
 import { Modal } from '../components/Modal';
+import { RegisterForm } from '../components/RegisterForm/RegisterForm';
 import { useModal } from '../Hooks/ModalHook';
 
 function HomePage() {
@@ -11,14 +12,11 @@ function HomePage() {
       {isModalShown && (
         <Modal onToggleModal={toggleModal}>
           <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-            deserunt, omnis, vel optio amet earum molestiae quo nobis pariatur
-            unde, sed odit delectus ab similique architecto. Est nemo reiciendis
-            in repellendus pariatur atque.
+            <button type="button" onClick={toggleModal}>
+              X
+            </button>
+            <RegisterForm />
           </div>
-          <button type="button" onClick={toggleModal}>
-            X
-          </button>
         </Modal>
       )}
     </>

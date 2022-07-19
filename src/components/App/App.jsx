@@ -4,10 +4,9 @@ import styled from 'styled-components';
 import HeaderBar from '../HeaderBar/HeaderBar';
 import { NotFoundPage } from '../../pages/NotFoundPage';
 import RoutPaths from '../../RoutPaths';
-
+import Counter from '../Counter/Counter';
 // import { ProductReviewForm } from '../ProductReviewForm';
 // import { LoginForm } from '../RegisterForm/LoginForm';
-
 const HomePage = lazy(() =>
   import('../../pages/HomePage.jsx' /* webpackChunkName: 'home-page' */)
 );
@@ -18,7 +17,6 @@ const BookDetailsPage = lazy(() => import('../../pages/BookDetailsPage.jsx'));
 const TablePage = lazy(() => import('../../pages/TablePage.jsx'));
 const TodosPage = lazy(() => import('../../pages/TodosPage.jsx'));
 const PhoneBookPage = lazy(() => import('../../pages/PhoneBookPage.jsx'));
-const RegisterFormPage = lazy(() => import('../../pages/RegisterFormPage.jsx'));
 
 const App = () => {
   return (
@@ -37,12 +35,10 @@ const App = () => {
           <Route path={RoutPaths.table} element={<TablePage />} />
           <Route path={RoutPaths.todos} element={<TodosPage />} />
           <Route path={RoutPaths.phoneBook} element={<PhoneBookPage />} />
-          <Route path={RoutPaths.registerForm} element={<RegisterFormPage />} />
-
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
-
+      {/* <Counter /> */}
       {/* <LoginForm /> */}
       {/* <ProductReviewForm /> */}
     </Container>

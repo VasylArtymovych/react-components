@@ -10,7 +10,6 @@ export const Navigation = () => (
     <StyLedNavLink to={RoutPaths.table}>Table</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.todos}>Todos</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.phoneBook}>PhoneBook</StyLedNavLink>
-    <StyLedNavLink to={RoutPaths.registerForm}>RegisterForm</StyLedNavLink>
   </nav>
 );
 
