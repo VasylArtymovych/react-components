@@ -11,6 +11,7 @@ export const Navigation = () => (
     <StyLedNavLink to={RoutPaths.todos}>Todos</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.phoneBook}>PhoneBook</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.registerForm}>RegisterForm</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.map}>Map</StyLedNavLink>
   </nav>
 );
 

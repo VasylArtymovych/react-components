@@ -1,5 +1,11 @@
 import shortid from 'shortid';
-import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  addTodoToList,
+  deleteTodoFromList,
+  toggleCompletedTodo,
+  setFilterValue,
+} from '../../redux/todos/todosSlice';
 import { Statistic } from './Statistic/Statistic';
 import { TodoEditor } from './TodoEditor/TodoEditor';
 import { TodoList } from './TodoList/TodoList';
@@ -7,25 +13,13 @@ import { Filter } from './Filter/Filter';
 import { Box } from '../Box';
 import { Title } from '../Title/Title';
 
-const initialTodos = [
-  { id: 'id-1', text: 'Learn React', completed: false },
-  { id: 'id-2', text: 'Learn JavaScript', completed: false },
-  { id: 'id-3', text: 'Learn HTML/Css/Scss', completed: false },
-];
-
-const parsedTodos = JSON.parse(localStorage.getItem('todos'));
-
 const Todos = () => {
-  const [todos, setTodos] = useState(() => parsedTodos ?? initialTodos);
-  const [filter, setFilter] = useState('');
-
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+  const { todos, filter } = useSelector(state => state.todoList);
+  const dispatch = useDispatch();
 
   const handleChange = e => {
     const { value } = e.target;
-    setFilter(value);
+    dispatch(setFilterValue(value));
   };
 
   const addTodo = text => {
@@ -34,19 +28,15 @@ const Todos = () => {
       text,
       completed: false,
     };
-    setTodos(prevState => [newTodo, ...prevState]);
+    dispatch(addTodoToList(newTodo));
   };
 
   const deleteTodo = todoId => {
-    setTodos(prevState => prevState.filter(({ id }) => id !== todoId));
+    dispatch(deleteTodoFromList(todoId));
   };
 
   const toggleCompleted = todoId => {
-    setTodos(prevState =>
-      prevState.map(todo =>
-        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
+    dispatch(toggleCompletedTodo(todoId));
   };
 
   const filterTodos = () => {
@@ -64,7 +54,7 @@ const Todos = () => {
   return (
     <Box>
       <Title textAlign="center" margin="10px 0 20px 0">
-        Your Todos List
+        Your Todo List
       </Title>
       <Box display="flex" justifyContent="space-around">
         <TodoEditor onAddTodo={addTodo} />

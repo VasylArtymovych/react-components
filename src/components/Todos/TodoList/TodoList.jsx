@@ -1,58 +1,55 @@
-import styled from "styled-components";
-import { Todo } from "../Todo/Todo";
+import styled from 'styled-components';
+import { Todo } from '../Todo/Todo';
 
-export const TodoList = ({todos, onDeleteTodo,  onToggleCompleted}) => {
-
-    return (
-        <StyledList>
-            {todos.map( ({id, text, completed}) => (
-                <StyledItem key ={id} cheked={completed}>
-                    <Todo 
-                    id={id} 
-                    text={text} 
-                    completed={completed} 
-                    onToggleCompleted={()=>{onToggleCompleted(id)}}
-                    onDelete={()=>{onDeleteTodo(id)}}
-                    />
-                </StyledItem>
-            ))}
-        </StyledList>
-    );
-} 
-
+export const TodoList = ({ todos, onDeleteTodo, onToggleCompleted }) => {
+  return (
+    <StyledList>
+      {todos.map(({ id, text, completed }) => (
+        <StyledItem key={id} cheked={completed}>
+          <Todo
+            id={id}
+            text={text}
+            completed={completed}
+            onToggleCompleted={onToggleCompleted}
+            onDelete={onDeleteTodo}
+          />
+        </StyledItem>
+      ))}
+    </StyledList>
+  );
+};
 
 const StyledList = styled('ul')`
-    display: flex;
-    flex-wrap: wrap;
-    padding: 10px;
-    margin-right: -10px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin-right: -10px;
 `;
 
-
 const StyledItem = styled('li')`
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-    width: calc(100%/3 - 10px);
-    height: 50px;
-    padding: 5px 10px;
-    margin: 0 10px 10px 0;
+  width: calc(100% / 3 - 10px);
+  height: 50px;
+  padding: 5px 10px;
+  margin: 0 10px 10px 0;
 
-    background-color: grey;
+  background-color: grey;
 
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 4px;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
 
-        background-color: ${p => p.theme.colors.effects};
+    background-color: ${p => p.theme.colors.effects};
 
-        transform: ${ p=> p.cheked ? 'scaleX(1)': 'scaleX(0) '};
-        transition: transform 250ms linear;
-    }
+    transform: ${p => (p.cheked ? 'scaleX(1)' : 'scaleX(0) ')};
+    transition: transform 250ms linear;
+  }
 `;
