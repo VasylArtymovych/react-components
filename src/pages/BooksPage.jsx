@@ -1,19 +1,20 @@
-import { useState, useEffect } from 'react';
-import { Link, useHref, useLocation } from 'react-router-dom';
-
-import { getBooks } from '../fakeAPI';
+import { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { booksThunks } from '../redux/books';
 
 export default function BooksPage() {
-  const [books, setBooks] = useState(null);
   const { pathname } = useLocation();
+  const books = useSelector(state => state.books.items);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    setBooks(getBooks());
-  }, []);
+    dispatch(booksThunks.getBooks());
+  }, [dispatch]);
 
   return (
     <>
-      {books && (
+      {books.length > 0 && (
         <ul>
           {books.map(book => (
             <li key={book.id}>

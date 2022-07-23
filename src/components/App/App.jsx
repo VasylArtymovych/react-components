@@ -19,7 +19,9 @@ const TablePage = lazy(() => import('../../pages/TablePage.jsx'));
 const TodosPage = lazy(() => import('../../pages/TodosPage.jsx'));
 const PhoneBookPage = lazy(() => import('../../pages/PhoneBookPage.jsx'));
 const RegisterFormPage = lazy(() => import('../../pages/RegisterFormPage.jsx'));
-const MapPage = lazy(() => import('../../pages/map/MapPage.jsx'));
+const AsyncTodosPage = lazy(() =>
+  import('../../pages/asyncTodos/AsyncTodosPage.jsx')
+);
 
 const App = () => {
   return (
@@ -39,7 +41,7 @@ const App = () => {
           <Route path={RoutPaths.todos} element={<TodosPage />} />
           <Route path={RoutPaths.phoneBook} element={<PhoneBookPage />} />
           <Route path={RoutPaths.registerForm} element={<RegisterFormPage />} />
-          {/* <Route path={RoutPaths.map} element={<MapPage />} /> */}
+          <Route path={RoutPaths.map} element={<AsyncTodosPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
