@@ -1,10 +1,16 @@
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
 import { NavLink, Outlet, generatePath } from 'react-router-dom';
-import { getAuthors } from '../fakeAPI';
+import { useSelector, useDispatch } from 'react-redux';
 import RoutPaths from '../RoutPaths';
+import { getAuthors } from '../redux/books/booksThunks';
 
 export default function AuthorsPage() {
-  const authors = getAuthors();
+  const authors = useSelector(state => state.books.authors);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAuthors());
+  }, [dispatch]);
 
   return (
     <>
