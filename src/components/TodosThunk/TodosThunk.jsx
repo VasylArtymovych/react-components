@@ -1,11 +1,12 @@
-import { useEffect } from 'react';
+import shortid from 'shortid';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeFilter } from '../../redux/todos/asyncTodosActions';
+import { updateFilter } from 'redux/todosThunk/todosSlicer';
 import {
-  addTodo,
-  deleteTodo,
-  fetchTodos,
-} from '../../redux/todos/asyncTodosOperations';
+  fetchThunkTodos,
+  addThunkTodo,
+  deleteThunkTodo,
+  updateThunkTodo,
+} from 'redux/todosThunk/todosThunk';
 import { Statistic } from './Statistic/Statistic';
 import { TodoEditor } from './TodoEditor/TodoEditor';
 import { TodoList } from './TodoList/TodoList';
@@ -14,24 +15,24 @@ import { Box } from '../Box';
 import { Title } from '../Title/Title';
 
 const Todos = () => {
-  const { todos, filter } = useSelector(state => state.asyncTodos);
+  const { todos, filter } = useSelector(state => state.todosThunk);
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(fetchTodos());
-  }, [dispatch]);
 
   const handleChange = e => {
     const { value } = e.target;
-    dispatch(changeFilter(value));
+    dispatch(updateFilter(value));
   };
 
-  const addTodoHandler = text => {
-    dispatch(addTodo(text));
+  const addTodo = text => {
+    dispatch(addThunkTodo(text));
   };
 
-  const deleteTodoHandler = todoId => {
-    dispatch(deleteTodo(todoId));
+  const deleteTodo = todoId => {
+    dispatch(deleteThunkTodo(todoId));
+  };
+
+  const toggleCompleted = (todoId, completed) => {
+    dispatch(updateThunkTodo({ id: todoId, completed }));
   };
 
   const filterTodos = () => {
@@ -52,14 +53,18 @@ const Todos = () => {
         Your Todo List
       </Title>
       <Box display="flex" justifyContent="space-around">
-        <TodoEditor onAddTodo={addTodoHandler} />
+        <TodoEditor onAddTodo={addTodo} />
         <Box mb={20}>
           <Statistic total={todos.length} completed={completedTodos} />
           <Filter onChange={handleChange} />
         </Box>
       </Box>
 
-      <TodoList todos={filteredTodos} onDeleteTodo={deleteTodoHandler} />
+      <TodoList
+        todos={filteredTodos}
+        onDeleteTodo={deleteTodo}
+        onToggleCompleted={toggleCompleted}
+      />
     </Box>
   );
 };

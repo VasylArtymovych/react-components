@@ -14,6 +14,7 @@ import timer from './timer/timerReducer';
 import todosSliceReducer from './todos/todosSlice';
 import { asyncTodosReducer } from './todos/asyncTodosReducer';
 import books from './books';
+import todosThunkReducer from './todosThunk/todosSlicer';
 
 const persistConfig = {
   key: 'todoList',
@@ -31,9 +32,10 @@ const middleware = [
 const store = configureStore({
   reducer: {
     timer,
-    asyncTodos: asyncTodosReducer,
     books,
+    asyncTodos: asyncTodosReducer,
     todoList: persistReducer(persistConfig, todosSliceReducer),
+    todosThunk: todosThunkReducer,
   },
   middleware,
   devTools: process.env.NODE_ENV === 'development',

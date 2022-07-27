@@ -22,6 +22,7 @@ const RegisterFormPage = lazy(() => import('../../pages/RegisterFormPage.jsx'));
 const AsyncTodosPage = lazy(() =>
   import('../../pages/asyncTodos/AsyncTodosPage.jsx')
 );
+const TodosThunkPage = lazy(() => import('../../pages/TodosThunkPage.jsx'));
 
 const App = () => {
   return (
@@ -42,6 +43,7 @@ const App = () => {
           <Route path={RoutPaths.phoneBook} element={<PhoneBookPage />} />
           <Route path={RoutPaths.registerForm} element={<RegisterFormPage />} />
           <Route path={RoutPaths.map} element={<AsyncTodosPage />} />
+          <Route path={RoutPaths.todosThunk} element={<TodosThunkPage />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>

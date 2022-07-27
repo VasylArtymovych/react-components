@@ -8,10 +8,11 @@ export const Navigation = () => (
     <StyLedNavLink to={RoutPaths.authors}>Authors</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.books}>Books</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.table}>Table</StyLedNavLink>
-    <StyLedNavLink to={RoutPaths.todos}>Todos</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.phoneBook}>PhoneBook</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.registerForm}>RegisterForm</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.todos}>Todos</StyLedNavLink>
     <StyLedNavLink to={RoutPaths.map}>AsyncTodos</StyLedNavLink>
+    <StyLedNavLink to={RoutPaths.todosThunk}>TodosThunk</StyLedNavLink>
   </nav>
 );
 

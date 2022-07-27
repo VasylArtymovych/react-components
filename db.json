@@ -13,7 +13,7 @@
     {
       "id": "id-3",
       "text": "Привыкнуть к Redux",
-      "completed": false
+      "completed": true
     },
     {
       "id": "id-4",
@@ -22,8 +22,13 @@
     },
     {
       "text": "yerim_best_best",
-      "completed": false,
+      "completed": true,
       "id": "FxYDc4H"
+    },
+    {
+      "text": "Artymovych V. M. will develop to Senior",
+      "completed": false,
+      "id": "vEqUeAO"
     }
   ],
   "books": [
@@ -125,9 +130,21 @@
     }
   ],
   "authors": [
-    { "id": 1, "name": "Роберт Шекли" },
-    { "id": 2, "name": "Кристофер Фаулер" },
-    { "id": 3, "name": "Говард Лавкрафт" },
-    { "id": 4, "name": "Вячеслав Шалыгин" }
+    {
+      "id": 1,
+      "name": "Роберт Шекли"
+    },
+    {
+      "id": 2,
+      "name": "Кристофер Фаулер"
+    },
+    {
+      "id": 3,
+      "name": "Говард Лавкрафт"
+    },
+    {
+      "id": 4,
+      "name": "Вячеслав Шалыгин"
+    }
   ]
 }

@@ -8,7 +8,8 @@ const RoutPaths = {
   todos: '/todos',
   phoneBook: '/phone_book',
   registerForm: '/register_form',
-  map: '/map',
+  map: '/asyncTodos',
+  todosThunk: '/todos_thunk',
 };
 
 export default RoutPaths;
